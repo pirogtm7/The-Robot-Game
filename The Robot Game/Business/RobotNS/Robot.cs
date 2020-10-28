@@ -8,7 +8,7 @@ using The_Robot_Game.Business.MementoNS;
 
 namespace The_Robot_Game.Business.RobotNS
 {
-	public abstract class Robot : IGameObject
+	public abstract class Robot
 	{
 		private string name;
 		private string rType;

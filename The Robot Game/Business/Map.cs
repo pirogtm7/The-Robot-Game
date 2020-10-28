@@ -8,7 +8,7 @@ using The_Robot_Game.Business.MementoNS;
 
 namespace The_Robot_Game.Business
 {
-	public class Map : IGameObject
+	public class Map
 	{
 		private List<Cargo> cargos = new List<Cargo>();
 

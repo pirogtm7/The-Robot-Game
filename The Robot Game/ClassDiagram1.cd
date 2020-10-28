@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="The_Robot_Game.Business.CargoNS.Cargo" Collapsed="true">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAGAEACBgAAAgAAAAAAI=</HashCode>
+      <FileName>Business\CargoNS\Cargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CargoNS.CommonCargo" Collapsed="true">
+    <Position X="6" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Business\CargoNS\CommonCargo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CargoNS.Decorator" Collapsed="true">
+    <Position X="9" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAI=</HashCode>
+      <FileName>Business\CargoNS\Decorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CargoNS.DecoratorEncoded" Collapsed="true">
+    <Position X="9.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Business\CargoNS\DecoratorEncoded.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CargoNS.DecoratorToxic" Collapsed="true">
+    <Position X="8" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Business\CargoNS\DecoratorToxic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CommandNS.Command" Collapsed="true">
+    <Position X="13.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAABABAQAAAAEAAAAAAAAAACAAAAAAAQAAAA=</HashCode>
+      <FileName>Business\CommandNS\Command.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CommandNS.CommandHistory">
+    <Position X="17.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAACgA=</HashCode>
+      <FileName>Business\CommandNS\CommandHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CommandNS.PickUpCommand" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Business\CommandNS\PickUpCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.CommandNS.UndoCommand" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\CommandNS\UndoCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.Engine" Collapsed="true">
+    <Position X="17.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABkAAAAAAAAQAAAAAEgAAAAAAAAABAAAAAAAABAIA=</HashCode>
+      <FileName>Business\Engine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.Map" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Business\Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.MementoNS.MapMemento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAQAEAAA=</HashCode>
+      <FileName>Business\MementoNS\MapMemento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="The_Robot_Game.Business.MementoNS.RobotMemento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAQAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Business\MementoNS\RobotMemento.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.CyborgCreator">
+    <Position X="1.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\CyborgCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.NerdCreator">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\NerdCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.Robot">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AEAAQCAAAEACAAAAAAAgAAQAIAQEAAAFAAAQABBAEAA=</HashCode>
+      <FileName>Business\RobotNS\Robot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.RobotCreator">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\RobotCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.RobotCyborg" Collapsed="true">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\RobotCyborg.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.RobotNerd" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\RobotNerd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.RobotWorker" Collapsed="true">
+    <Position X="10" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\RobotWorker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Business.RobotNS.WorkerCreator">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\RobotNS\WorkerCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="The_Robot_Game.Program" Collapsed="true">
+    <Position X="23.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="The_Robot_Game.Business.MementoNS.IMemento" Collapsed="true">
+    <Position X="16.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\MementoNS\IMemento.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
