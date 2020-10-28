@@ -8,13 +8,13 @@ using The_Robot_Game.Business.MementoNS;
 
 namespace The_Robot_Game.Business
 {
-	public class MapCreator : IGameObject
+	public class Map : IGameObject
 	{
 		private List<Cargo> cargos = new List<Cargo>();
 
 		public List<Cargo> Cargos { get { return cargos; } set { cargos = value; }  }
 
-		public MapCreator()
+		public Map()
 		{
 			CreateCargos();
 		}
@@ -26,6 +26,7 @@ namespace The_Robot_Game.Business
 
 		public void CreateCargos()
 		{
+			Cargos.Clear();
 			for (int i = 0; i < 3; i++)
 			{
 				Cargo cargo = new CommonCargo();

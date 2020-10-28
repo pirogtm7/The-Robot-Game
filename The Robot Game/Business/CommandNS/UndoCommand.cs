@@ -11,15 +11,19 @@ namespace The_Robot_Game.Business.CommandNS
 	public class UndoCommand : Command
 	{
 		public UndoCommand(Engine engine,
-			Robot robot, MapCreator mc,
-			Cargo cargo) : base(engine, robot, mc, cargo)
+			Robot robot, Map mc) : base(engine, robot, mc)
 		{
 
 		}
 
 		public override bool Execute()
 		{
-			engine.Undo();
+			Command c = CommandHistory.Pop();
+			if (c != null)
+			{
+				c.Undo();
+			}
+			//engine.Undo();
 			return false;
 		}
 	}

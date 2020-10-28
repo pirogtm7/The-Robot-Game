@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 
 namespace The_Robot_Game.Business.CommandNS
 {
-	public class CommandHistory
+	public static class CommandHistory
 	{
-		private List<Command> history = new List<Command>();
+		//firs in last out, optimization
+		private static Stack<Command> history = new Stack<Command>();
 
-		public void Push(Command c)
+		public static void Push(Command c)
 		{
-			history.Add(c);
+			history.Push(c);
 		}
 
-		public Command Pop()
+		public static Command Pop()
 		{
-			return history[history.Count - 1];
+			if (history.Count() > 0)
+			{
+				return history.Pop();
+			}
+			return null;
+			//TODO: throw exception
 		}
 	}
 }

@@ -9,10 +9,11 @@ using The_Robot_Game.Business.RobotNS;
 
 namespace The_Robot_Game.Business
 {
+
 	public class Engine
 	{
-		private MapCreator mapCreator;
-		private CommandHistory commandHistory;
+		private Map map;
+		//private CommandHistory commandHistory;
 		private Robot robot;
 		private RobotCreator robotCreator;
 		private bool gameOver;
@@ -41,19 +42,20 @@ namespace The_Robot_Game.Business
 			}
 			robot = robotCreator.FactoryMethod();
 			robot.Name = name;
-			GetStats();
 			return robot;
 		}
 
 		public void MainLoop(Robot robot)
 		{
-			commandHistory = new CommandHistory();
+			//commandHistory = new CommandHistory();
+			map = new Map();
 
 			while (!gameOver)
 			{
 				string choice;
-				mapCreator = new MapCreator();
 
+				//Console.Clear();
+				GetStats();
 				Console.WriteLine("You see some cargos.");
 				GetCargoInfo();
 				Console.Write("Please make choice: 1, 2, 3, Undo: ");
@@ -62,33 +64,18 @@ namespace The_Robot_Game.Business
 
 				if (choice == "Undo")
 				{
-					ExecuteCommand(new UndoCommand(this, robot, mapCreator,
-						mapCreator.Cargos[Convert.ToInt32(choice) - 1]));
+					new UndoCommand(this, robot, map).Execute();
 				}
 				else if (choice == "1" || choice == "2" || choice == "3")
 				{
-					ExecuteCommand(new PickUpCommand(this, robot, mapCreator,
-						mapCreator.Cargos[Convert.ToInt32(choice) - 1]));
+					new PickUpCommand(this, robot, map,
+						map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
+					map.CreateCargos();
 				}
-				GetStats();
 			}
-		}
-
-		public void ExecuteCommand(Command c)
-		{
-			if(c.Execute())
-			{
-				commandHistory.Push(c);
-			}
-		}
-
-		public void Undo()
-		{
-			Command c = commandHistory.Pop();
-			if (c != null)
-			{
-				c.Undo();
-			}
+			//Console.Clear();
+			Console.WriteLine($"Your score: {robot.FinalMoney}");
+			Console.ReadKey();
 		}
 
 		public void GetStats()
@@ -101,7 +88,7 @@ namespace The_Robot_Game.Business
 		public void GetCargoInfo()
 		{
 			int i = 1;
-			foreach (Cargo c in mapCreator.Cargos)
+			foreach (Cargo c in map.Cargos)
 			{
 				Console.WriteLine($"Cargo {i}, name = {c.Name}, " +
 					$"value = {c.Value}, weight = {c.Weight}, " +

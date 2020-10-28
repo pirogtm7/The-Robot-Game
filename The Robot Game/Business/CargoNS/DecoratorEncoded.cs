@@ -12,7 +12,7 @@ namespace The_Robot_Game.Business.CargoNS
 		public DecoratorEncoded(Cargo cargo) : base(cargo)
 		{
 			Name = "Encoded";
-			Value = Weight * 2;
+			Value = Weight * 5;
 		}
 
 		public override void Unpack(Robot r, Engine engine)

@@ -9,17 +9,17 @@ namespace The_Robot_Game.Business.MementoNS
 {
 	public class MapMemento : IMemento
 	{
-		private MapCreator _mc;
+		private Map _mc;
 		private List<Cargo> cargos = new List<Cargo>();
 
 
-		public MapMemento(MapCreator mc)
+		public MapMemento(Map mc)
 		{
 			_mc = mc;
 			FillCargos(mc);
 		}
 
-		public void FillCargos(MapCreator mc)
+		public void FillCargos(Map mc)
 		{
 			foreach (Cargo c in mc.Cargos)
 			{
@@ -29,10 +29,11 @@ namespace The_Robot_Game.Business.MementoNS
 
 		public void Restore()
 		{
-			foreach (Cargo c in cargos)
-			{
-				_mc.Cargos.Add(c);
-			}
+			_mc.Cargos = cargos;
+			//foreach (Cargo c in cargos)
+			//{
+			//	_mc.Cargos.Add(c);
+			//}
 		}
 	}
 }

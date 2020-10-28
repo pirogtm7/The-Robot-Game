@@ -46,6 +46,7 @@ namespace The_Robot_Game.Business.RobotNS
 			{
 				engine.GameOver = true;
 				FinalMoney = TotalMoney;
+				//TODO: change to exception
 			}
 		}
 
@@ -59,20 +60,5 @@ namespace The_Robot_Game.Business.RobotNS
 			return new RobotMemento(this, BatteryCharge,
 				CargoCapacity, TotalMoney);
 		}
-
-		//public void SetBC(int batteryCharge)
-		//{
-		//	this.BatteryCharge = batteryCharge;
-		//}
-
-		//public void SetCC(int cargoCapacity)
-		//{
-		//	this.CargoCapacity = cargoCapacity;
-		//}
-
-		//public void SetTM(int totalMoney)
-		//{
-		//	this.TotalMoney = totalMoney;
-		//}
 	}
 }

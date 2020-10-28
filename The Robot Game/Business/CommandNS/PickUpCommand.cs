@@ -10,16 +10,19 @@ namespace The_Robot_Game.Business.CommandNS
 {
 	public class PickUpCommand : Command
 	{
+		Cargo cargo;
 		public PickUpCommand(Engine engine,
-			Robot robot, MapCreator mc, 
-			Cargo cargo) : base(engine, robot, mc, cargo)
+			Robot robot, Map mc, 
+			Cargo cargo) : base(engine, robot, mc)
 		{
-
+			this.cargo = cargo;
 		}
 
 		public override bool Execute()
 		{
 			MakeBackup();
+			CommandHistory.Push(this);
+
 			robot.PickUp(cargo, engine);
 			return true;
 		}

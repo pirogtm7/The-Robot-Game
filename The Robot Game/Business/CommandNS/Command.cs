@@ -13,17 +13,15 @@ namespace The_Robot_Game.Business.CommandNS
 	{
 		protected Engine engine;
 		protected Robot robot;
-		protected MapCreator mc;
-		protected Cargo cargo;
+		protected Map mc;
 		private IMemento mapMemento, robotMemento;
 
 		public Command(Engine engine, Robot robot,
-			MapCreator mc, Cargo cargo)
+			Map mc)
 		{
 			this.engine = engine;
 			this.robot = robot;
 			this.mc = mc;
-			this.cargo = cargo;
 		}
 
 		public void MakeBackup()
