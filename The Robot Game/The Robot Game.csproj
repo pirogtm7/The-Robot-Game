@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48F48E79-A52F-433D-9C30-4A2113BB8C44}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>The_Robot_Game</RootNamespace>
+    <AssemblyName>The Robot Game</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\CargoNS\Cargo.cs" />
+    <Compile Include="Business\CargoNS\CommonCargo.cs" />
+    <Compile Include="Business\CargoNS\Decorator.cs" />
+    <Compile Include="Business\CargoNS\DecoratorEncoded.cs" />
+    <Compile Include="Business\CargoNS\DecoratorToxic.cs" />
+    <Compile Include="Business\CommandNS\Command.cs" />
+    <Compile Include="Business\CommandNS\CommandHistory.cs" />
+    <Compile Include="Business\CommandNS\PickUpCommand.cs" />
+    <Compile Include="Business\CommandNS\UndoCommand.cs" />
+    <Compile Include="Business\Engine.cs" />
+    <Compile Include="Business\IGameObject.cs" />
+    <Compile Include="Business\MapCreator.cs" />
+    <Compile Include="Business\MementoNS\IMemento.cs" />
+    <Compile Include="Business\MementoNS\MapMemento.cs" />
+    <Compile Include="Business\MementoNS\RobotMemento.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Business\RobotNS\CyborgCreator.cs" />
+    <Compile Include="Business\RobotNS\NerdCreator.cs" />
+    <Compile Include="Business\RobotNS\Robot.cs" />
+    <Compile Include="Business\RobotNS\RobotCreator.cs" />
+    <Compile Include="Business\RobotNS\RobotCyborg.cs" />
+    <Compile Include="Business\RobotNS\RobotNerd.cs" />
+    <Compile Include="Business\RobotNS\RobotWorker.cs" />
+    <Compile Include="Business\RobotNS\WorkerCreator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Presentation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
