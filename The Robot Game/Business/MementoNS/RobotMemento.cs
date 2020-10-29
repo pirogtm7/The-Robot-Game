@@ -27,9 +27,6 @@ namespace The_Robot_Game.Business.MementoNS
 			robot.BatteryCharge = batteryCharge;
 			robot.CargoCapacity = cargoCapacity;
 			robot.TotalMoney = totalMoney;
-			//robot.SetBC(batteryCharge);
-			//robot.SetCC(cargoCapacity);
-			//robot.SetTM(totalMoney);
 		}
 	}
 }

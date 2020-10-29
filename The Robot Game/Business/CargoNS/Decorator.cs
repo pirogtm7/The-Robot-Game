@@ -16,9 +16,9 @@ namespace The_Robot_Game.Business.CargoNS
 			this.wrapee = cargo;
 		}
 
-        public override void Unpack(Robot r, Engine engine)
+        public override void Unpack(Robot r)
         {
-            wrapee.Unpack(r, engine);
+            wrapee.Unpack(r);
         }
     }
 }

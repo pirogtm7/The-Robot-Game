@@ -11,22 +11,20 @@ namespace The_Robot_Game.Business.CommandNS
 {
 	public abstract class Command
 	{
-		protected Engine engine;
 		protected Robot robot;
-		protected Map mc;
+		protected Map map;
 		private IMemento mapMemento, robotMemento;
 
-		public Command(Engine engine, Robot robot,
-			Map mc)
+		public Command(Robot robot,
+			Map map)
 		{
-			this.engine = engine;
 			this.robot = robot;
-			this.mc = mc;
+			this.map = map;
 		}
 
 		public void MakeBackup()
 		{
-			mapMemento = mc.CreateMemento();
+			mapMemento = map.CreateMemento();
 			robotMemento = robot.CreateMemento();
 		}
 

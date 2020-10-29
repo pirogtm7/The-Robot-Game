@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Exceptions\BatteryEmptyException.cs" />
     <Compile Include="Business\CargoNS\Cargo.cs" />
     <Compile Include="Business\CargoNS\CommonCargo.cs" />
     <Compile Include="Business\CargoNS\Decorator.cs" />
@@ -68,6 +69,11 @@
     <Compile Include="Business\CommandNS\PickUpCommand.cs" />
     <Compile Include="Business\CommandNS\UndoCommand.cs" />
     <Compile Include="Business\Engine.cs" />
+    <Compile Include="Business\Exceptions\CantUndoException.cs" />
+    <Compile Include="Business\Exceptions\CargoTooHeavyException.cs" />
+    <Compile Include="Business\Exceptions\FailedToEncodeException.cs" />
+    <Compile Include="Business\Exceptions\ToxicHitException.cs" />
+    <Compile Include="Business\Exceptions\WrongInputException.cs" />
     <Compile Include="Business\Map.cs" />
     <Compile Include="Business\MementoNS\IMemento.cs" />
     <Compile Include="Business\MementoNS\MapMemento.cs" />

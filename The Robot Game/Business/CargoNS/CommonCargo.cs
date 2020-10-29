@@ -15,10 +15,10 @@ namespace The_Robot_Game.Business.CargoNS
 			Value = Weight * 3;
 		}
 
-		public override void Unpack(Robot r, Engine engine) 
+		public override void Unpack(Robot r) 
 		{
 			r.Discharge(Weight);
-			r.BatteryCheck(engine);
+			r.BatteryCheck();
 			r.EarnMoney(Value);
 		}
 	}

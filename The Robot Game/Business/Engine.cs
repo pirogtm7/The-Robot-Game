@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Robot_Game.Business.CargoNS;
 using The_Robot_Game.Business.CommandNS;
+using The_Robot_Game.Business.Exceptions;
 using The_Robot_Game.Business.RobotNS;
+using The_Robot_Game.Exceptions;
 
 namespace The_Robot_Game.Business
 {
@@ -13,7 +15,6 @@ namespace The_Robot_Game.Business
 	public class Engine
 	{
 		private Map map;
-		//private CommandHistory commandHistory;
 		private Robot robot;
 		private RobotCreator robotCreator;
 		private bool gameOver;
@@ -47,34 +48,76 @@ namespace The_Robot_Game.Business
 
 		public void MainLoop(Robot robot)
 		{
-			//commandHistory = new CommandHistory();
 			map = new Map();
 
 			while (!gameOver)
 			{
-				string choice;
-
-				//Console.Clear();
-				GetStats();
-				Console.WriteLine("You see some cargos.");
-				GetCargoInfo();
-				Console.Write("Please make choice: 1, 2, 3, Undo: ");
-
-				choice = Console.ReadLine();
-
-				if (choice == "Undo")
+				try
 				{
-					new UndoCommand(this, robot, map).Execute();
+					string choice;
+
+					Console.Clear();
+					GetStats();
+					Console.WriteLine("You see some cargos.");
+					GetCargoInfo();
+					Console.Write("Please make choice: 1, 2, 3, Undo: ");
+
+					choice = Console.ReadLine();
+
+					if (choice == "Undo")
+					{
+						try
+						{
+							new UndoCommand(robot, map).Execute();
+						}
+						catch (CantUndoException e)
+						{
+							ErrorMessage(e);
+						}
+					}
+					else if (choice == "1" || choice == "2" || choice == "3")
+					{
+						try
+						{
+							new PickUpCommand(robot, map,
+							map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
+						}
+						catch (CargoTooHeavyException e)
+						{
+							ErrorMessage(e);
+
+						}
+						catch (FailedToEncodeException e)
+						{
+							ErrorMessage(e);
+
+						}
+						catch (ToxicHitException e)
+						{
+							ErrorMessage(e);
+						}
+						finally
+						{
+							map.CreateCargos();
+						}
+					}
+					else
+					{
+						throw new WrongInputException("Please enter a valid value!");
+					}
 				}
-				else if (choice == "1" || choice == "2" || choice == "3")
+				catch(WrongInputException e)
 				{
-					new PickUpCommand(this, robot, map,
-						map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
-					map.CreateCargos();
+					ErrorMessage(e);
+				}
+				catch (BatteryEmptyException e)
+				{
+					gameOver = true;
+					ErrorMessage(e);
 				}
 			}
-			//Console.Clear();
-			Console.WriteLine($"Your score: {robot.FinalMoney}");
+			Console.Clear();
+			Console.WriteLine($"Your score: {robot.TotalMoney}");
 			Console.ReadKey();
 		}
 
@@ -95,6 +138,12 @@ namespace The_Robot_Game.Business
 					$"distance = {c.Distance}");
 				i ++;
 			}
+		}
+
+		public void ErrorMessage(Exception e)
+		{
+			Console.WriteLine(e.Message);
+			Console.ReadKey();
 		}
 	}
 }

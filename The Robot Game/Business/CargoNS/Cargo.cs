@@ -27,6 +27,6 @@ namespace The_Robot_Game.Business.CargoNS
 			Distance = random.Next(1, 11);
 		}
 
-		public abstract void Unpack(Robot r, Engine engine); 
+		public abstract void Unpack(Robot r); 
 	}
 }

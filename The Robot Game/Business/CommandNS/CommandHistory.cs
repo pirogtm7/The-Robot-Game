@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Robot_Game.Business.Exceptions;
 
 namespace The_Robot_Game.Business.CommandNS
 {
 	public static class CommandHistory
 	{
-		//firs in last out, optimization
 		private static Stack<Command> history = new Stack<Command>();
 
 		public static void Push(Command c)
@@ -22,8 +22,9 @@ namespace The_Robot_Game.Business.CommandNS
 			{
 				return history.Pop();
 			}
-			return null;
-			//TODO: throw exception
+			throw new CantUndoException("Woah-woah-woah, don't hurry! " +
+				"You are at the beginning of the game!\n" +
+				"Pick up one cargo before you undo your move.");
 		}
 	}
 }

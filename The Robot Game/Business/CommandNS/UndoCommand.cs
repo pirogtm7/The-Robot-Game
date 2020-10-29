@@ -10,8 +10,7 @@ namespace The_Robot_Game.Business.CommandNS
 {
 	public class UndoCommand : Command
 	{
-		public UndoCommand(Engine engine,
-			Robot robot, Map mc) : base(engine, robot, mc)
+		public UndoCommand(Robot robot, Map map) : base(robot, map)
 		{
 
 		}
@@ -19,10 +18,7 @@ namespace The_Robot_Game.Business.CommandNS
 		public override bool Execute()
 		{
 			Command c = CommandHistory.Pop();
-			if (c != null)
-			{
-				c.Undo();
-			}
+			c.Undo();
 			//engine.Undo();
 			return false;
 		}

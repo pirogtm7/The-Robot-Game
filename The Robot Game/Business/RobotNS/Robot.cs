@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using The_Robot_Game.Business.CargoNS;
+using The_Robot_Game.Business.Exceptions;
 using The_Robot_Game.Business.MementoNS;
+using The_Robot_Game.Exceptions;
 
 namespace The_Robot_Game.Business.RobotNS
 {
@@ -15,38 +17,39 @@ namespace The_Robot_Game.Business.RobotNS
 		private int batteryCharge;
 		private int cargoCapacity;
 		private int totalMoney;
-		private int finalMoney;
 
 		public string Name { get => name; set => name = value; }
 		public string RType { get => rType; set => rType = value; }
 		public int BatteryCharge { get => batteryCharge; set => batteryCharge = value; }
 		public int CargoCapacity { get => cargoCapacity; set => cargoCapacity = value; }
 		public int TotalMoney { get => totalMoney; set => totalMoney = value; }
-		public int FinalMoney { get => finalMoney; set => finalMoney = value; }
 
 		public void Discharge(int num)
 		{
 			BatteryCharge -= num;
 		}
 
-		public void PickUp(Cargo c, Engine engine)
+		public void PickUp(Cargo c)
 		{
 			Discharge(c.Distance);
-			BatteryCheck(engine);
+			BatteryCheck();
 			if(CargoCapacity >= c.Weight)
 			{
-				c.Unpack(this, engine);
+				c.Unpack(this);
 			}
-			//exeption
+			else
+			{
+				throw new CargoTooHeavyException("They say there's no wrong choice. " +
+				"But you have just made one!\n" +
+				"This cargo is too heavy. You have just waisted your power!");
+			}
 		}
 
-		public void BatteryCheck(Engine engine)
+		public void BatteryCheck()
 		{
 			if (BatteryCharge < 0)
 			{
-				engine.GameOver = true;
-				FinalMoney = TotalMoney;
-				//TODO: change to exception
+				throw new BatteryEmptyException("The battery is empty! Game over.");
 			}
 		}
 

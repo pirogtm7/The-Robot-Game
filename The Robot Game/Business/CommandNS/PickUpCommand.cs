@@ -10,10 +10,9 @@ namespace The_Robot_Game.Business.CommandNS
 {
 	public class PickUpCommand : Command
 	{
-		Cargo cargo;
-		public PickUpCommand(Engine engine,
-			Robot robot, Map mc, 
-			Cargo cargo) : base(engine, robot, mc)
+		private Cargo cargo;
+		public PickUpCommand(Robot robot, Map map, 
+			Cargo cargo) : base(robot, map)
 		{
 			this.cargo = cargo;
 		}
@@ -23,7 +22,7 @@ namespace The_Robot_Game.Business.CommandNS
 			MakeBackup();
 			CommandHistory.Push(this);
 
-			robot.PickUp(cargo, engine);
+			robot.PickUp(cargo);
 			return true;
 		}
 	}
