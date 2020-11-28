@@ -12,12 +12,14 @@ namespace The_Robot_Game.Business.MementoNS
 		private Map map;
 		private List<Cargo> cargos = new List<Cargo>();
 
+		public List<Cargo> Cargos { get => cargos; set => cargos = value; }
 
 		public MapMemento(Map map)
 		{
 			this.map = map;
 			FillCargos();
 		}
+
 
 		public void FillCargos()
 		{

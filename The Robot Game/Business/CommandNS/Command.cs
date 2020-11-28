@@ -15,6 +15,11 @@ namespace The_Robot_Game.Business.CommandNS
 		protected Map map;
 		private IMemento mapMemento, robotMemento;
 
+		public Command()
+		{
+
+		}
+
 		public Command(Robot robot,
 			Map map)
 		{
@@ -34,6 +39,6 @@ namespace The_Robot_Game.Business.CommandNS
 			robotMemento.Restore();
 		}
 
-		public abstract bool Execute();
+		public abstract void Execute();
 	}
 }

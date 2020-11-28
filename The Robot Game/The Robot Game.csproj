@@ -78,6 +78,7 @@
     <Compile Include="Business\MementoNS\IMemento.cs" />
     <Compile Include="Business\MementoNS\MapMemento.cs" />
     <Compile Include="Business\MementoNS\RobotMemento.cs" />
+    <Compile Include="Presentation\ConsoleHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Business\RobotNS\CyborgCreator.cs" />
     <Compile Include="Business\RobotNS\NerdCreator.cs" />
@@ -93,9 +94,7 @@
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presentation\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

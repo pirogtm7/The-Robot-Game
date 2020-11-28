@@ -15,12 +15,10 @@ namespace The_Robot_Game.Business.CommandNS
 
 		}
 
-		public override bool Execute()
+		public override void Execute()
 		{
 			Command c = CommandHistory.Pop();
 			c.Undo();
-			//engine.Undo();
-			return false;
 		}
 	}
 }

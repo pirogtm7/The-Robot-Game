@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Robot_Game.Exceptions
+namespace The_Robot_Game.Business.Exceptions
 {
 	public class BatteryEmptyException : Exception
 	{

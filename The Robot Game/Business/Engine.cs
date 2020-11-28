@@ -7,26 +7,22 @@ using The_Robot_Game.Business.CargoNS;
 using The_Robot_Game.Business.CommandNS;
 using The_Robot_Game.Business.Exceptions;
 using The_Robot_Game.Business.RobotNS;
-using The_Robot_Game.Exceptions;
 
 namespace The_Robot_Game.Business
 {
-
 	public class Engine
 	{
-		private Map map;
+		private Map map = new Map();
 		private Robot robot;
 		private RobotCreator robotCreator;
 		private bool gameOver;
 
+		public Robot Robot { get => robot; set => robot = value; }
+		public Map Map { get => map; set => map = value; }
 		public bool GameOver { get => gameOver; set => gameOver = value; }
 
-		public Robot Initialize()
+		public Robot Initialize(string name)
 		{
-			Console.Write("This is 'The Robot Game'. " +
-				"Please enter your name: ");
-			string name = Console.ReadLine();
-
 			Random random = new Random();
 			int chance = random.Next(1, 11);
 			if (chance <= 5)
@@ -46,104 +42,47 @@ namespace The_Robot_Game.Business
 			return robot;
 		}
 
-		public void MainLoop(Robot robot)
+		public string CommandExecuter(Robot robot, string choice)
 		{
-			map = new Map();
-
-			while (!gameOver)
+			if (choice == "Undo")
 			{
 				try
 				{
-					string choice;
-
-					Console.Clear();
-					GetStats();
-					Console.WriteLine("You see some cargos.");
-					GetCargoInfo();
-					Console.Write("Please make choice: 1, 2, 3, Undo: ");
-
-					choice = Console.ReadLine();
-
-					if (choice == "Undo")
-					{
-						try
-						{
-							new UndoCommand(robot, map).Execute();
-						}
-						catch (CantUndoException e)
-						{
-							ErrorMessage(e);
-						}
-					}
-					else if (choice == "1" || choice == "2" || choice == "3")
-					{
-						try
-						{
-							new PickUpCommand(robot, map,
-							map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
-						}
-						catch (CargoTooHeavyException e)
-						{
-							ErrorMessage(e);
-
-						}
-						catch (FailedToEncodeException e)
-						{
-							ErrorMessage(e);
-
-						}
-						catch (ToxicHitException e)
-						{
-							ErrorMessage(e);
-						}
-						finally
-						{
-							map.CreateCargos();
-						}
-					}
-					else
-					{
-						throw new WrongInputException("Please enter a valid value!");
-					}
+					new UndoCommand(robot, map).Execute();
+					return null;
 				}
-				catch(WrongInputException e)
+				catch (CantUndoException e)
 				{
-					ErrorMessage(e);
-				}
-				catch (BatteryEmptyException e)
-				{
-					gameOver = true;
-					ErrorMessage(e);
+					return e.Message;
 				}
 			}
-			Console.Clear();
-			Console.WriteLine($"Your score: {robot.TotalMoney}");
-			Console.ReadKey();
-		}
-
-		public void GetStats()
-		{
-			Console.WriteLine($"Your robot stats: name - {robot.Name}, type - {robot.RType}, " +
-				$"cargo capacity - {robot.CargoCapacity}, battery charge - {robot.BatteryCharge}, " +
-				$"money - {robot.TotalMoney}.");
-		}
-
-		public void GetCargoInfo()
-		{
-			int i = 1;
-			foreach (Cargo c in map.Cargos)
+			else
 			{
-				Console.WriteLine($"Cargo {i}, name = {c.Name}, " +
-					$"value = {c.Value}, weight = {c.Weight}, " +
-					$"distance = {c.Distance}");
-				i ++;
-			}
-		}
+				try
+				{
+					new PickUpCommand(robot, map,
+					map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
+					return null;
+				}
+				catch (CargoTooHeavyException e)
+				{
+					return e.Message;
 
-		public void ErrorMessage(Exception e)
-		{
-			Console.WriteLine(e.Message);
-			Console.ReadKey();
+				}
+				catch (FailedToEncodeException e)
+				{
+					return e.Message;
+
+				}
+				catch (ToxicHitException e)
+				{
+					return e.Message;
+				}
+				finally
+				{
+					map.CreateCargos();
+				}
+			}
 		}
 	}
 }

@@ -17,13 +17,12 @@ namespace The_Robot_Game.Business.CommandNS
 			this.cargo = cargo;
 		}
 
-		public override bool Execute()
+		public override void Execute()
 		{
 			MakeBackup();
 			CommandHistory.Push(this);
 
 			robot.PickUp(cargo);
-			return true;
 		}
 	}
 }

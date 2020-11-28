@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using The_Robot_Game.Business.CargoNS;
 using The_Robot_Game.Business.Exceptions;
 using The_Robot_Game.Business.MementoNS;
-using The_Robot_Game.Exceptions;
 
 namespace The_Robot_Game.Business.RobotNS
 {
@@ -47,7 +46,7 @@ namespace The_Robot_Game.Business.RobotNS
 
 		public void BatteryCheck()
 		{
-			if (BatteryCharge < 0)
+			if (BatteryCharge <= 0)
 			{
 				throw new BatteryEmptyException("The battery is empty! Game over.");
 			}
