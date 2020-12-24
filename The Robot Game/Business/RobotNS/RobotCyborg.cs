@@ -11,7 +11,7 @@ namespace The_Robot_Game.Business.RobotNS
 		public RobotCyborg()
 		{
 			RType = "Cyborg";
-			CargoCapacity = 9;
+			CargoCapacity = 8;
 			BatteryCharge = 90;
 		}
 	}

@@ -16,7 +16,7 @@ namespace The_Robot_Game.Business
 
 		public Map()
 		{
-			CreateCargos();
+			//CreateCargos();
 		}
 
 		public IMemento CreateMemento()
@@ -26,9 +26,9 @@ namespace The_Robot_Game.Business
 
 		public void CreateCargos()
 		{
-			Cargos.Clear();
-			for (int i = 0; i < 3; i++)
-			{
+			//Cargos.Clear();
+			//for (int i = 0; i < 3; i++)
+			//{
 				Cargo cargo = new CommonCargo();
 
 				Random random = new Random(Guid.NewGuid().GetHashCode());
@@ -43,7 +43,7 @@ namespace The_Robot_Game.Business
 					cargo = new DecoratorEncoded(cargo);
 				}
 				Cargos.Add(cargo);
-			}
+			//}
 		}
 	}
 }

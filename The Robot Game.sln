@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Robot Game", "The Robot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Robot GameTests", "The Robot GameTests\The Robot GameTests.csproj", "{10832103-D207-4D3F-9D74-5E06875491B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "The Robot Game WPF", "The Robot Game WPF\The Robot Game WPF.csproj", "{7E45FED6-8A4F-473C-8548-7985EA61BFAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{10832103-D207-4D3F-9D74-5E06875491B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10832103-D207-4D3F-9D74-5E06875491B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10832103-D207-4D3F-9D74-5E06875491B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E45FED6-8A4F-473C-8548-7985EA61BFAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E45FED6-8A4F-473C-8548-7985EA61BFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E45FED6-8A4F-473C-8548-7985EA61BFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E45FED6-8A4F-473C-8548-7985EA61BFAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

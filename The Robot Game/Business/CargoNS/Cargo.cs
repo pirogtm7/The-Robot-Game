@@ -14,17 +14,21 @@ namespace The_Robot_Game.Business.CargoNS
 		private int weight;
 		private int value;
 		private int distance;
+		private int x;
+		private int y;
 
 		public string Name { get => name; set => name = value; }
 		public int Weight { get => weight; set => weight = value; }
 		public int Value { get => value; set => this.value = value; }
-		public int Distance { get => distance; set => distance = value; }
+		//public int Distance { get => distance; set => distance = value; }
+		public int X { get => x; set => x = value; }
+		public int Y { get => y; set => y = value; }
 
 		public Cargo()
 		{
 			Random random = new Random(Guid.NewGuid().GetHashCode());
-			Weight = random.Next(1, 11);
-			Distance = random.Next(1, 11);
+			Weight = random.Next(1, 10);
+			//Distance = random.Next(1, 10);
 		}
 
 		public abstract void Unpack(Robot r); 

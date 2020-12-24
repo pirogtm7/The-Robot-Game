@@ -16,23 +16,33 @@ namespace The_Robot_Game.Business.RobotNS
 		private int batteryCharge;
 		private int cargoCapacity;
 		private int totalMoney;
+		private int x;
+		private int y;
 
 		public string Name { get => name; set => name = value; }
 		public string RType { get => rType; set => rType = value; }
 		public int BatteryCharge { get => batteryCharge; set => batteryCharge = value; }
 		public int CargoCapacity { get => cargoCapacity; set => cargoCapacity = value; }
 		public int TotalMoney { get => totalMoney; set => totalMoney = value; }
+		public int X { get => x; set => x = value; }
+		public int Y { get => y; set => y = value; }
 
 		public void Discharge(int num)
 		{
 			BatteryCharge -= num;
 		}
 
+		public void Move()
+		{
+			Discharge(1);
+			BatteryCheck();
+		}
+
 		public void PickUp(Cargo c)
 		{
-			Discharge(c.Distance);
-			BatteryCheck();
-			if(CargoCapacity >= c.Weight)
+			//Discharge(c.Distance);
+			//BatteryCheck();
+			if (CargoCapacity >= c.Weight)
 			{
 				c.Unpack(this);
 			}
@@ -40,7 +50,7 @@ namespace The_Robot_Game.Business.RobotNS
 			{
 				throw new CargoTooHeavyException("They say there's no wrong choice. " +
 				"But you have just made one!\n" +
-				"This cargo is too heavy. You have just waisted your power!");
+				"This cargo is too heavy. Keep on looking for a lighter one!");
 			}
 		}
 
@@ -60,7 +70,7 @@ namespace The_Robot_Game.Business.RobotNS
 		public IMemento CreateMemento() 
 		{
 			return new RobotMemento(this, BatteryCharge,
-				CargoCapacity, TotalMoney);
+				CargoCapacity, TotalMoney, X, Y);
 		}
 	}
 }

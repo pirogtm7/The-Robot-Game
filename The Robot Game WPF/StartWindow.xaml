@@ -1,0 +1,17 @@
+﻿<Window x:Class="The_Robot_Game_WPF.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_Robot_Game_WPF"
+        mc:Ignorable="d"
+        Title="The Robot Game" SizeToContent="WidthAndHeight">
+    <Grid Width="575" Height="400" Background="Black">
+        <Label Content="Welcome to The Robot Game!" FontSize="30" Foreground="White" HorizontalAlignment="Left" Margin="95,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Please enter your name:" FontSize="25" Foreground="Green" HorizontalAlignment="Center" Margin="155,149,146,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameBox" HorizontalAlignment="Left" Height="23" Margin="225,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="NameButton" Content="OK" Background="LightSlateGray" HorizontalAlignment="Left" Margin="225,236,0,0" VerticalAlignment="Top" Width="120" Height="27" Click="NameButton_Click"/>
+
+
+    </Grid>
+</Window>

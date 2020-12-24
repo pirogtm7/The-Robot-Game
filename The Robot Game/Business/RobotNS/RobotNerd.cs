@@ -11,7 +11,7 @@ namespace The_Robot_Game.Business.RobotNS
 		public RobotNerd()
 		{
 			RType = "Nerd";
-			CargoCapacity = 8;
+			CargoCapacity = 7;
 			BatteryCharge = 90;
 		}
 	}

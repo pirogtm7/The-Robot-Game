@@ -17,6 +17,7 @@ namespace The_Robot_Game.Business
 		private RobotCreator robotCreator;
 		private bool gameOver;
 
+
 		public Robot Robot { get => robot; set => robot = value; }
 		public Map Map { get => map; set => map = value; }
 		public bool GameOver { get => gameOver; set => gameOver = value; }
@@ -42,47 +43,63 @@ namespace The_Robot_Game.Business
 			return robot;
 		}
 
-		public string CommandExecuter(Robot robot, string choice)
+		public void UndoCommandExecuter()
 		{
-			if (choice == "Undo")
-			{
-				try
-				{
-					new UndoCommand(robot, map).Execute();
-					return null;
-				}
-				catch (CantUndoException e)
-				{
-					return e.Message;
-				}
-			}
-			else
-			{
-				try
-				{
-					new PickUpCommand(robot, map,
-					map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
-					return null;
-				}
-				catch (CargoTooHeavyException e)
-				{
-					return e.Message;
-
-				}
-				catch (FailedToEncodeException e)
-				{
-					return e.Message;
-
-				}
-				catch (ToxicHitException e)
-				{
-					return e.Message;
-				}
-				finally
-				{
-					map.CreateCargos();
-				}
-			}
+			new UndoCommand(robot, map).Execute();
 		}
+
+		public void MoveCommandExecuter()
+		{
+			new MoveCommand(robot, map).Execute();
+		}
+
+		public void PickUpCommandExecuter(Cargo cargo)
+		{
+			new PickUpCommand(robot, map,
+					cargo).Execute();
+		}
+
+		//public string CommandExecuter(Robot robot, string choice)
+		//{
+		//	if (choice == "Undo")
+		//	{
+		//		try
+		//		{
+		//			new UndoCommand(robot, map).Execute();
+		//			return null;
+		//		}
+		//		catch (CantUndoException e)
+		//		{
+		//			return e.Message;
+		//		}
+		//	}
+		//	else
+		//	{
+		//		try
+		//		{
+		//			new PickUpCommand(robot, map,
+		//			map.Cargos[Convert.ToInt32(choice) - 1]).Execute();
+		//			return null;
+		//		}
+		//		catch (CargoTooHeavyException e)
+		//		{
+		//			return e.Message;
+
+		//		}
+		//		catch (FailedToEncodeException e)
+		//		{
+		//			return e.Message;
+
+		//		}
+		//		catch (ToxicHitException e)
+		//		{
+		//			return e.Message;
+		//		}
+		//		finally
+		//		{
+		//			map.CreateCargos();
+		//		}
+		//	}
+		//}
 	}
 }

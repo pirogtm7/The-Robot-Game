@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using The_Robot_Game.Business;
 using The_Robot_Game.Business.RobotNS;
-using The_Robot_Game.Presentation;
 
 namespace The_Robot_Game
 {
@@ -13,8 +12,8 @@ namespace The_Robot_Game
 	{
 		static void Main()
 		{
-			ConsoleHandler ch = new ConsoleHandler();
-			ch.MainLoopHandler(ch.IntializeHandler());
+			//ConsoleHandler ch = new ConsoleHandler();
+			//ch.MainLoopHandler(ch.IntializeHandler());
 		}
 	}
 }

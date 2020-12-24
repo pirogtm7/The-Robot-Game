@@ -11,7 +11,7 @@ namespace The_Robot_Game.Business.RobotNS
 		public RobotWorker()
 		{
 			RType = "Worker"; 
-			CargoCapacity = 10;
+			CargoCapacity = 9;
 			BatteryCharge = 100;
 		}
 	}

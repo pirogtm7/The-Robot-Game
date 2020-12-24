@@ -11,15 +11,17 @@ namespace The_Robot_Game.Business.MementoNS
 	{
 		private Robot robot;
 		private int batteryCharge, cargoCapacity,
-			totalMoney;
+			totalMoney, x, y;
 
 		public RobotMemento(Robot robot, int batteryCharge,
-			int cargoCapacity, int totalMoney)
+			int cargoCapacity, int totalMoney, int x, int y)
 		{
 			this.robot = robot;
 			this.batteryCharge = batteryCharge;
 			this.cargoCapacity = cargoCapacity;
 			this.totalMoney = totalMoney;
+			this.x = x;
+			this.y = y;
 		}
 
 		public void Restore()
@@ -27,6 +29,8 @@ namespace The_Robot_Game.Business.MementoNS
 			robot.BatteryCharge = batteryCharge;
 			robot.CargoCapacity = cargoCapacity;
 			robot.TotalMoney = totalMoney;
+			robot.X = x;
+			robot.Y = y;
 		}
 	}
 }
